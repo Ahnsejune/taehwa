@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stella Maris — Premium Oyster Heritage</title>
+    
+    <!-- 유럽 명조 및 우아한 한글 본명조 로드 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+KR:wght@200;300;400;500;600&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-ink: #0E1012;         /* 칠흑 같은 바다와 정제된 먹색 */
+            --color-paper: #F4F1EA;       /* 햇살에 바랜 미색 석회암 베이스 */
+            --color-paper-pure: #FAF8F5;  /* 고결하고 부드러운 우윳빛 안쪽면 */
+            --color-gold: #C5A880;        /* 유럽 왕실 헤리티지의 미색 골드 */
+            --color-deep-sea: #141E28;    /* 차가운 지중해와 통영 심해의 중간 조율색 */
+            
+            --font-editorial: 'Cormorant Garamond', serif;
+            --font-hangul: 'Noto Serif KR', serif;
+            --font-sans: 'Montserrat', sans-serif;
+            
+            --transition-premium: all 0.75s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--color-paper);
+            color: var(--color-ink);
+            font-family: var(--font-hangul);
+            font-weight: 300;
+            line-height: 1.75;
+            word-break: keep-all;
+            overflow-x: hidden;
+        }
+
+        /* 스크롤바 커스텀 */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--color-paper);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-ink);
+        }
+
+        /* -------------------------------------------------------------
+           Premium Typography & Fine Lines
+        ------------------------------------------------------------- */
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 80px;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 24px; }
+        }
+
+        /* 가늘고 정교한 더블 라인 장치 */
+        .fine-rule {
+            border: none;
+            height: 1px;
+            background-color: rgba(14, 16, 18, 0.08);
+            margin: 60px 0;
+        }
+
+        .fine-double-rule {
+            border-top: 1px solid rgba(14, 16, 18, 0.08);
+            border-bottom: 1px solid rgba(14, 16, 18, 0.08);
+            height: 4px;
+            margin: 80px 0;
+        }
+
+        /* -------------------------------------------------------------
+           STREAMING_CHUNK:Designing navigation bar and premium typography...
+        ------------------------------------------------------------- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition-premium);
+            border-bottom: 1px solid rgba(14, 16, 18, 0.04);
+            background-color: rgba(244, 241, 234, 0.01);
+            backdrop-filter: blur(0px);
+        }
+
+        header.scrolled {
+            background-color: rgba(244, 241, 234, 0.96);
+            border-bottom: 1px solid rgba(14, 16, 18, 0.08);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 95px;
+            padding: 0 80px;
+            transition: var(--transition-premium);
+        }
+
+        header.scrolled .header-inner {
+            height: 75px;
+        }
+
+        .brand-logo {
+            font-family: var(--font-editorial);
+            font-size: 1.8rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            color: var(--color-ink);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo-seal {
+            width: 22px;
+            height: 22px;
+            stroke: var(--color-ink);
+            stroke-width: 1.5;
+            fill: none;
+        }
+
+        .nav-editorial {
+            display: flex;
+            gap: 50px;
+        }
+
+        .nav-editorial a {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--color-ink);
+            text-decoration: none;
+            position: relative;
+            padding: 4px 0;
+            opacity: 0.75;
+            transition: var(--transition-premium);
+        }
+
+        .nav-editorial a:hover {
+            opacity: 1;
+        }
+
+        .nav-editorial a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--color-gold);
+            transition: var(--transition-premium);
+        }
+
+        .nav-editorial a:hover::after {
+            width: 100%;
+        }
+
+        .header-meta {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .lang-editorial {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            opacity: 0.6;
+        }
+
+        .lang-editorial span {
+            cursor: pointer;
+            transition: var(--transition-premium);
+        }
+
+        .lang-editorial span.active {
+            font-weight: 500;
+            color: var(--color-ink);
+            border-bottom: 1px solid var(--color-ink);
+            opacity: 1;
+        }
+
+        .btn-alliance-trigger {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            border: 1px solid var(--color-ink);
+            padding: 10px 24px;
+            background: none;
+            cursor: pointer;
+            transition: var(--transition-premium);
+        }
+
+        .btn-alliance-trigger:hover {
+            background-color: var(--color-ink);
+            color: var(--color-paper);
+        }
+
+        @media (max-width: 1024px) {
+            .nav-editorial { display: none; }
+            .header-inner { padding: 0 24px; }
+        }
+
+        /* -------------------------------------------------------------
+           STREAMING_CHUNK:Creating the immersive Hero experience...
+        ------------------------------------------------------------- */
+        .luxury-hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background-color: #080B0F;
+            overflow: hidden;
+            color: var(--color-paper);
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.45;
+        }
+
+        .hero-watermark {
+            position: absolute;
+            bottom: 40px;
+            left: 80px;
+            z-index: 2;
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            opacity: 0.5;
+            color: var(--color-paper);
+        }
+
+        .hero-watermark span {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            right: 80px;
+            z-index: 2;
+            font-family: var(--font-editorial);
+            font-size: 0.9rem;
+            font-style: italic;
+            letter-spacing: 0.1em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            opacity: 0.6;
+        }
+
+        .hero-scroll-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--color-paper), transparent);
+        }
+
+        .hero-core {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            text-align: center;
+        }
+
+        .hero-sub {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            margin-bottom: 25px;
+        }
+
+        .hero-main-title {
+            font-family: var(--font-editorial);
+            font-size: 6rem;
+            font-weight: 300;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            margin-bottom: 40px;
+        }
+
+        .hero-main-title em {
+            font-family: var(--font-editorial);
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .hero-kr-desc {
+            font-family: var(--font-hangul);
+            font-size: 1.5rem;
+            font-weight: 200;
+            letter-spacing: 0.12em;
+            opacity: 0.85;
+            margin-bottom: 60px;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .btn-editorial-primary {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 18px 42px;
+            border: 1px solid var(--color-paper);
+            background-color: var(--color-paper);
+            color: var(--color-ink);
+            text-decoration: none;
+            transition: var(--transition-premium);
+        }
+
+        .btn-editorial-primary:hover {
+            background-color: transparent;
+            color: var(--color-paper);
+        }
+
+        .btn-editorial-secondary {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 18px 42px;
+            border: 1px solid rgba(244, 241, 234, 0.3);
+            background-color: transparent;
+            color: var(--color-paper);
+            text-decoration: none;
+            transition: var(--transition-premium);
+        }
+
+        .btn-editorial-secondary:hover {
+            border-color: var(--color-paper);
+        }
+
+        @media (max-width: 768px) {
+            .hero-main-title { font-size: 3.5rem; }
+            .hero-kr-desc { font-size: 1.1rem; }
+            .hero-actions { flex-direction: column; align-items: center; gap: 15px; }
+            .btn-editorial-primary, .btn-editorial-secondary { width: 100%; max-width: 280px; text-align: center; }
+            .hero-watermark, .hero-scroll-indicator { display: none; }
+        }
+
+        /* -------------------------------------------------------------
+           STREAMING_CHUNK:Styling the brand story in an asymmetrical layout...
+        ------------------------------------------------------------- */
+        .story-asymmetric {
+            padding: 160px 0;
+            background-color: var(--color-paper);
+            position: relative;
+        }
+
+        .asym-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 120px;
+            align-items: center;
+        }
+
+        .asym-visual-frame {
+            position: relative;
+            border: 1px solid rgba(14, 16, 18, 0.08);
+            padding: 30px;
+            background-color: var(--color-paper-pure);
+        }
+
+        .asym-visual-box {
+            width: 100%;
+            height: 560px;
+            background-color: var(--color-deep-sea);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .asym-visual-box svg {
+            width: 85%;
+            height: auto;
+            opacity: 0.85;
+            transition: var(--transition-premium);
+        }
+
+        .asym-visual-box:hover svg {
+            transform: scale(1.03);
+        }
+
+        .coordinates-badge {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            font-family: var(--font-sans);
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            color: var(--color-gold);
+            z-index: 2;
+        }
+
+        .asym-text-box {
+            padding-right: 50px;
+        }
+
+        .asym-pre {
+            font-family: var(--font-editorial);
+            font-size: 1.3rem;
+            color: var(--color-gold);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 25px;
+        }
+
+        .asym-title {
+            font-family: var(--font-hangul);
+            font-size: 2.8rem;
+            font-weight: 300;
+            line-height: 1.35;
+            margin-bottom: 45px;
+            letter-spacing: -0.01em;
+        }
+
+        .asym-title em {
+            font-family: var(--font-editorial);
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .asym-body-p {
+            font-family: var(--font-hangul);
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.9;
+            color: rgba(14, 16, 18, 0.75);
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .brand-auth-sign {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .brand-auth-line {
+            width: 60px;
+            height: 1px;
+            background-color: var(--color-ink);
+            opacity: 0.25;
+        }
+
+        .brand-auth-label {
+            font-family: var(--font-editorial);
+            font-size: 1.1rem;
+            font-style: italic;
+            letter-spacing: 0.05em;
+            color: var(--color-gold);
+        }
+
+        @media (max-width: 1024px) {
+            .asym-grid { grid-template-columns: 1fr; gap: 60px; }
+            .asym-text-box { padding-right: 0; }
+            .asym-visual-box { height: 400px; }
+        }
+
+        /* -------------------------------------------------------------
+           STREAMING_CHUNK:Developing the luxury product exhibition...
+        ------------------------------------------------------------- */
+        .exhibition-products {
+            padding: 160px 0;
+            background-color: var(--color-paper-pure);
+            border-top: 1px solid rgba(14, 16, 18, 0.06);
+            border-bottom: 1px solid rgba(14, 16, 18, 0.06);
+        }
+
+        .editorial-sec-head {
+            text-align: center;
+            margin-bottom: 90px;
+        }
+
+        .editorial-sec-head span {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .editorial-sec-head h2 {
+            font-family: var(--font-editorial);
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        .editorial-sec-head h2 em {
+            font-style: italic;
+        }
+
+        .exhibit-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 140px;
+        }
+
+        /* 파인다이닝 메뉴판 스타일의 비대칭 품목 나열 */
+        .exhibit-item {
+            display: grid;
+            grid-template-columns: 1.12fr 0.88fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .exhibit-item.reversed {
+            grid-template-columns: 0.88fr 1.12fr;
+        }
+
+        .exhibit-visual {
+            background-color: var(--color-paper);
+            border: 1px solid rgba(14, 16, 18, 0.04);
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .exhibit-visual-seal {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-family: var(--font-sans);
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            opacity: 0.4;
+        }
+
+        .exhibit-visual svg {
+            width: 60%;
+            height: auto;
+            filter: drop-shadow(0 20px 45px rgba(14, 16, 18, 0.08));
+            transition: var(--transition-premium);
+        }
+
+        .exhibit-visual:hover svg {
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        .exhibit-desc-box {
+            padding-right: 60px;
+        }
+
+        .exhibit-item.reversed .exhibit-desc-box {
+            padding-right: 0;
+            padding-left: 60px;
+        }
+
+        .exhibit-num {
+            font-family: var(--font-editorial);
+            font-size: 1.4rem;
+            color: var(--color-gold);
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .exhibit-name-en {
+            font-family: var(--font-editorial);
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+        }
+
+        .exhibit-name-ko {
+            font-family: var(--font-hangul);
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--color-ink);
+            margin-bottom: 25px;
+        }
+
+        .exhibit-details-text {
+            font-family: var(--font-hangul);
+            font-size: 0.95rem;
+            line-height: 1.85;
+            color: rgba(14, 16, 18, 0.7);
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .btn-editorial-explore {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--color-ink);
+            border-bottom: 1px solid var(--color-ink);
+            padding-bottom: 6px;
+            transition: var(--transition-premium);
+            display: inline-block;
+        }
+
+        .btn-editorial-explore:hover {
+            color: var(--color-gold);
+            border-color: var(--color-gold);
+            padding-left: 10px;
+        }
+
+        @media (max-width: 1024px) {
+            .exhibit-item, .exhibit-item.reversed { grid-template-columns: 1fr; gap: 40px; }
+            .exhibit-desc-box, .exhibit-item.reversed .exhibit-desc-box { padding: 0; }
+            .exhibit-visual { padding: 40px; }
+            .exhibit-visual svg { width: 50%; }
+        }
+
+        /* -------------------------------------------------------------
+           STREAMING_CHUNK:Crafting the archival IP and trust certificates...
+        ------------------------------------------------------------- */
+        .archive-intellectual {
+            padding: 160px 0;
+            background-color: var(--color-paper);
+        }
+
+        .archive-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .archive-card {
+            background-color: var(--color-paper-pure);
+            border: 1px solid rgba(14, 16, 18, 0.07);
+            padding: 60px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 380px;
+            transition: var(--transition-premium);
+        }
+
+        .archive-card:hover {
+            border-color: var(--color-gold);
+            transform: translateY(-8px);
+        }
+
+        .archive-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .archive-badge-num {
+            font-family: var(--font-editorial);
+            font-size: 1.1rem;
+            color: var(--color-gold);
+            border: 1px solid rgba(197, 168, 128, 0.3);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .archive-crest {
+            width: 38px;
+            height: 38px;
+            stroke: var(--color-gold);
+            fill: none;
+            stroke-width: 1.2;
+        }
+
+        .archive-card-content {
+            margin-top: auto;
+        }
+
+        .archive-card-title {
+            font-family: var(--font-hangul);
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--color-ink);
+        }
+
+        .archive-card-desc {
+            font-family: var(--font-hangul);
+            font-size: 0.88rem;
+            color: rgba(14, 16, 18, 0.6);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        @media (max-width: 1024px) {
+            .archive-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 640px) {
+            .archive-grid { grid-template-columns: 1fr; }
+            .archive-card { height: 320px; }
+        }
+
+        /* -------------------------------------------------------------
+           STREAMING_CHUNK:Building the brand guarantee charter...
+        ------------------------------------------------------------- */
+        .charter-guarantee {
+            padding: 160px 0;
+            background-color: var(--color-paper-pure);
+        }
+
+        .charter-layout {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .charter-text-panel h3 {
+            font-family: var(--font-hangul);
+            font-size: 2.2rem;
+            font-weight: 300;
+            margin-bottom: 35px;
+            letter-spacing: 0.05em;
+        }
+
+        .charter-text-panel p {
+            font-family: var(--font-hangul);
+            font-size: 1rem;
+            line-height: 1.85;
+            color: rgba(14, 16, 18, 0.7);
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .media-press-block {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .media-press-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(14, 16, 18, 0.08);
+            padding-bottom: 25px;
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-premium);
+        }
+
+        .media-press-row:hover {
+            border-color: var(--color-ink);
+            padding-left: 10px;
+        }
+
+        .media-outlet {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            margin-bottom: 6px;
+        }
+
+        .media-quote {
+            font-family: var(--font-hangul);
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .media-arrow {
+            font-size: 1.5rem;
+            font-family: var(--font-editorial);
+            color: var(--color-gold);
+        }
+
+        .guarantee-charter-box {
+            border: 1px solid rgba(197, 168, 128, 0.4);
+            padding: 60px 45px;
+            background-color: var(--color-paper);
+            position: relative;
+            text-align: center;
+        }
+
+        .guarantee-charter-box::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            border: 1px solid rgba(197, 168, 128, 0.2);
+            pointer-events: none;
+        }
+
+        .charter-seal-graphic {
+            width: 75px;
+            height: 75px;
+            margin: 0 auto 35px;
+            stroke: var(--color-ink);
+            stroke-width: 1;
+            fill: none;
+        }
+
+        .charter-seal-title {
+            font-family: var(--font-editorial);
+            font-size: 1.8rem;
+            font-style: italic;
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
+        }
+
+        .charter-seal-body {
+            font-family: var(--font-hangul);
+            font-size: 0.92rem;
+            line-height: 1.9;
+            color: rgba(14, 16, 18, 0.75);
+            font-weight: 300;
+        }
+
+        @media (max-width: 1024px) {
+            .charter-layout { grid-template-columns: 1fr; gap: 80px; }
+            .guarantee-charter-box { padding: 50px 30px; }
+        }
+
+        /* -------------------------------------------------------------
+           Ecosystem Heritage Transition Banner
+        ------------------------------------------------------------- */
+        .heritage-eco-banner {
+            background-color: #0D1117;
+            padding: 140px 0;
+            color: var(--color-paper);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eco-bg-line {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: auto;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .eco-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .eco-tag {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .eco-title {
+            font-family: var(--font-editorial);
+            font-size: 3.2rem;
+            font-weight: 300;
+            line-height: 1.3;
+            margin-bottom: 30px;
+        }
+
+        .eco-title em {
+            font-style: italic;
+        }
+
+        .eco-desc {
+            font-family: var(--font-hangul);
+            font-size: 0.95rem;
+            line-height: 1.85;
+            color: rgba(244, 241, 234, 0.7);
+            margin-bottom: 45px;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .eco-title { font-size: 2rem; }
+        }
+
+        /* -------------------------------------------------------------
+           STREAMING_CHUNK:Designing the B2B alliance portal...
+        ------------------------------------------------------------- */
+        .alliance-portal {
+            padding: 160px 0;
+            background-color: var(--color-paper);
+            border-top: 1px solid rgba(14, 16, 18, 0.08);
+        }
+
+        .alliance-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 120px;
+        }
+
+        .alliance-desc-box h3 {
+            font-family: var(--font-editorial);
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            margin-bottom: 30px;
+        }
+
+        .alliance-desc-box h3 em {
+            font-style: italic;
+        }
+
+        .alliance-info-desc {
+            font-family: var(--font-hangul);
+            font-size: 1rem;
+            color: rgba(14, 16, 18, 0.7);
+            line-height: 1.85;
+            font-weight: 300;
+            margin-bottom: 50px;
+        }
+
+        .alliance-contact-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .meta-address-row {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .meta-address-icon-frame {
+            width: 48px;
+            height: 48px;
+            border: 1px solid rgba(14, 16, 18, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gold);
+            background-color: var(--color-paper-pure);
+        }
+
+        .meta-address-icon-frame svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .meta-address-label {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            margin-bottom: 4px;
+        }
+
+        .meta-address-value {
+            font-family: var(--font-hangul);
+            font-size: 0.95rem;
+            color: var(--color-ink);
+        }
+
+        .alliance-form-box {
+            background-color: var(--color-paper-pure);
+            border: 1px solid rgba(14, 16, 18, 0.08);
+            padding: 60px;
+        }
+
+        .editorial-form-group {
+            margin-bottom: 30px;
+        }
+
+        .editorial-form-label {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-ink);
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .editorial-input {
+            width: 100%;
+            background-color: var(--color-paper);
+            border: 1px solid rgba(14, 16, 18, 0.08);
+            padding: 16px 20px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--color-ink);
+            transition: var(--transition-premium);
+        }
+
+        .editorial-input:focus {
+            border-color: var(--color-gold);
+            background-color: #ffffff;
+            outline: none;
+        }
+
+        .editorial-textarea {
+            resize: none;
+        }
+
+        .btn-editorial-submit {
+            width: 100%;
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            background-color: var(--color-ink);
+            color: var(--color-paper);
+            padding: 18px 0;
+            border: 1px solid var(--color-ink);
+            cursor: pointer;
+            transition: var(--transition-premium);
+        }
+
+        .btn-editorial-submit:hover {
+            background-color: transparent;
+            color: var(--color-ink);
+        }
+
+        /* 제휴 모달 경고 대체 창 */
+        .toast-dialog {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background-color: var(--color-ink);
+            color: var(--color-paper);
+            padding: 24px 32px;
+            border-left: 4px solid var(--color-gold);
+            z-index: 1100;
+            font-family: var(--font-hangul);
+            font-size: 0.95rem;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            display: none;
+            opacity: 0;
+            transition: var(--transition-premium);
+        }
+
+        .toast-dialog.active {
+            display: block;
+            opacity: 1;
+        }
+
+        @media (max-width: 1024px) {
+            .alliance-grid { grid-template-columns: 1fr; gap: 60px; }
+            .alliance-form-box { padding: 40px 24px; }
+        }
+
+        /* -------------------------------------------------------------
+           Footer
+        ------------------------------------------------------------- */
+        footer {
+            background-color: #0E1012;
+            color: rgba(244, 241, 234, 0.6);
+            padding: 100px 0 60px;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(244, 241, 234, 0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 80px;
+        }
+
+        .footer-logo-text {
+            font-family: var(--font-editorial);
+            font-size: 1.8rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            color: var(--color-paper);
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        .footer-co-info p {
+            margin-bottom: 12px;
+            font-family: var(--font-hangul);
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .footer-links-title {
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-paper);
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .footer-links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-links-list a {
+            color: rgba(244, 241, 234, 0.55);
+            text-decoration: none;
+            transition: var(--transition-premium);
+            font-family: var(--font-hangul);
+        }
+
+        .footer-links-list a:hover {
+            color: var(--color-paper);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(244, 241, 234, 0.08);
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(244, 241, 234, 0.4);
+        }
+
+        .footer-credit {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 25px;
+        }
+
+        .footer-socials a {
+            color: rgba(244, 241, 234, 0.4);
+            text-decoration: none;
+            transition: var(--transition-premium);
+        }
+
+        .footer-socials a:hover {
+            color: var(--color-paper);
+        }
+
+        @media (max-width: 1024px) {
+            .footer-grid { grid-template-columns: 1fr; gap: 50px; margin-bottom: 50px; }
+            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. HEADER & GNB -->
+    <header id="mainHeader">
+        <div class="header-inner">
+            <a href="#" class="brand-logo">
+                <svg class="brand-logo-seal" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45"/>
+                    <path d="M50,15 C55,30 65,40 85,50 C65,60 55,70 50,85 C45,70 35,60 15,50 C35,40 45,30 50,15 Z"/>
+                </svg>
+                STELLA MARIS
+            </a>
+            <nav class="nav-editorial">
+                <a href="#story">The Origin</a>
+                <a href="#collection">Masterpiece</a>
+                <a href="#authority">Archival Trust</a>
+                <a href="#alliance">Executive Alliance</a>
+            </nav>
+            <div class="header-right">
+                <div class="lang-editorial">
+                    <span class="active">KR</span> / <span>EN</span>
+                </div>
+                <button class="btn-alliance-trigger" onclick="scrollToSection('alliance')">Alliance Inquiry</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. LUXURY HERO -->
+    <section class="luxury-hero">
+        <div class="hero-background">
+            <!-- 수려한 기하학 별자리와 천체 지도 그래픽 드로잉 -->
+            <svg width="100%" height="100%" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <radialGradient id="deepBlueSea" cx="50%" cy="50%" r="70%">
+                        <stop offset="0%" stop-color="#0F1622" />
+                        <stop offset="100%" stop-color="#05080C" />
+                    </radialGradient>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#deepBlueSea)" />
+                <circle cx="720" cy="450" r="380" fill="none" stroke="#C5A880" stroke-width="0.5" opacity="0.15" />
+                <circle cx="720" cy="450" r="220" fill="none" stroke="#C5A880" stroke-dasharray="2, 6" stroke-width="0.75" opacity="0.25" />
+                <!-- 별자리를 이루는 천체 라인 -->
+                <path d="M720,70 L720,830" stroke="#C5A880" stroke-width="0.5" opacity="0.1" />
+                <path d="M340,450 L1100,450" stroke="#C5A880" stroke-width="0.5" opacity="0.1" />
+                <!-- 굴 형태의 기하학 패스 (미세선) -->
+                <path d="M720,180 C800,280 850,420 800,550 C750,650 690,650 640,550 C590,420 640,280 720,180 Z" fill="none" stroke="#C5A880" stroke-width="0.5" opacity="0.15"/>
+            </svg>
+        </div>
+        
+        <div class="hero-watermark">
+            <span>TERROIR: TONGYEONG CO-ORDINATES</span>
+            <span>34°51'21.1"N 128°24'35.3"E</span>
+        </div>
+
+        <div class="hero-scroll-indicator">
+            <span>Decend</span>
+            <div class="hero-scroll-line"></div>
+        </div>
+
+        <div class="hero-core">
+            <p class="hero-sub">The Star of the Deep Sea</p>
+            <h1 class="hero-main-title">Stella Maris<br><em>L'Étoile de la Mer</em></h1>
+            <p class="hero-kr-desc">통영 청정 심해가 빚고, 유럽의 장인정신이 연출한 최고의 한 점</p>
+            <div class="hero-actions">
+                <a href="#collection" class="btn-editorial-primary">Masterpiece</a>
+                <a href="#story" class="btn-editorial-secondary">The Origin Story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. BRAND STORY (Asymmetric Layout) -->
+    <section class="story-asymmetric" id="story">
+        <div class="container">
+            <div class="asym-grid">
+                <div class="asym-visual-frame">
+                    <div class="coordinates-badge">EST. 1991 / TONGYEONG ARCHIPELAGO</div>
+                    <div class="asym-visual-box">
+                        <!-- 고전적인 굴 가공 일러스트레이션 미세 드로잉 -->
+                        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="200" cy="200" r="170" fill="none" stroke="rgba(197, 168, 128, 0.15)" stroke-width="1" />
+                            <circle cx="200" cy="200" r="162" fill="none" stroke="rgba(197, 168, 128, 0.3)" stroke-width="1" stroke-dasharray="3, 3" />
+                            <!-- 정교하게 드로잉된 굴 등껍질 겹선 레이아웃 -->
+                            <path d="M200,80 C260,140 290,230 250,310 C220,350 180,350 150,310 C110,230 140,140 200,80 Z" fill="none" stroke="#C5A880" stroke-width="1.5" />
+                            <path d="M200,110 C240,160 265,230 235,290 C215,320 185,320 165,290 C135,230 160,160 200,110 Z" fill="none" stroke="rgba(197, 168, 128, 0.4)" stroke-width="1" />
+                            <path d="M200,140 C220,180 235,230 220,270 C210,290 190,290 180,270 C165,230 180,180 200,140 Z" fill="none" stroke="rgba(197, 168, 128, 0.2)" stroke-width="0.75" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="asym-text-box">
+                    <span class="asym-pre">Artisanal Cultivation</span>
+                    <h2 class="asym-title">서두르지 않는 시간이 지켜낸<br>단 하나의 <em>Authentic Oyster</em></h2>
+                    <p class="asym-body-p">
+                        우리는 기술이라는 투박한 단어로 프리미엄의 가치를 훼손하지 않습니다. 삼배체나 개체 굴이라는 난해한 기술적 언어들은 모두 심해 깊은 곳에 묻어두고, 오직 입안을 가득 채우는 서정적인 풍미만을 최상위에 올려놓았습니다.
+                    </p>
+                    <p class="asym-body-p">
+                        1991년 태화물산의 설립 이래 30년이 넘는 시간 동안, 우리는 자연의 속도에 인간의 집요함을 더해왔습니다. 격이 다른 영양 염류와 맑은 해류가 교차하는 통영의 심해 속에서, 단 한 알의 스텔라마리스는 가장 완벽한 밸런스로 탄생하기 위해 그 자체로 사색의 시간을 보냅니다.
+                    </p>
+                    <div class="brand-auth-sign">
+                        <div class="brand-auth-line"></div>
+                        <span class="brand-auth-label">Maison de Stella Maris, 1991</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. COLLECTION EXHIBITION (Luxury Menu Concept) -->
+    <section class="exhibition-products" id="collection">
+        <div class="container">
+            <div class="editorial-sec-head">
+                <span>L'EXPOSITION DE STELLA MARIS</span>
+                <h2>The Masterpiece <em>Collection</em></h2>
+            </div>
+
+            <div class="exhibit-layout">
+                <!-- 품목 1 -->
+                <div class="exhibit-item">
+                    <div class="exhibit-visual">
+                        <span class="exhibit-visual-seal">COUTUR CLASS</span>
+                        <!-- 리얼한 생굴 단면 패스 드로잉 -->
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M100,15 C145,55 175,115 155,165 C135,195 115,195 100,195 C85,195 65,195 45,165 C25,115 55,55 100,15 Z" fill="#EAE5DC" stroke="#C5A880" stroke-width="1" />
+                            <path d="M100,30 C135,65 160,115 145,155 C130,180 115,180 100,180 C85,180 70,180 55,155 C40,115 65,65 100,30 Z" fill="#FAF6F0" stroke="rgba(197, 168, 128, 0.3)" stroke-width="0.75" />
+                            <path d="M100,55 C115,75 125,110 118,140 C112,155 106,155 100,155 C94,155 88,155 82,140 C75,110 85,75 100,55 Z" fill="#F4F9F5" />
+                            <path d="M100,80 C108,95 115,115 112,130 C106,140 100,140 100,140 C100,140 94,140 88,130 C85,115 92,95 100,80 Z" fill="#FFFFFF" opacity="0.9" />
+                            <circle cx="100" cy="115" r="7" fill="#BAC8BE" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <div class="exhibit-desc-box">
+                        <span class="exhibit-num">N°01</span>
+                        <h3 class="exhibit-name-en">Stella Maris — L'Origine (생굴)</h3>
+                        <h4 class="exhibit-name-ko">스텔라 마리스 오리지널 생굴</h4>
+                        <p class="exhibit-details-text">
+                            통영 청정 바다에서 건져 올려 어떠한 인위적 가공도 거치지 않은 시그니처 순수작입니다. 특유의 기품 있는 미색 텍스처와 은은하게 남는 미네랄의 긴 피니시가 입안을 가득 채웁니다.
+                        </p>
+                        <a href="#alliance" class="btn-editorial-explore">Alliace Request</a>
+                    </div>
+                </div>
+
+                <!-- 품목 2 -->
+                <div class="exhibit-item reversed">
+                    <div class="exhibit-desc-box">
+                        <span class="exhibit-num">N°02</span>
+                        <h3 class="exhibit-name-en">La Demi-Coquille — Gelée (하프셀)</h3>
+                        <h4 class="exhibit-name-ko">스텔라 마리스 냉동 하프셀굴</h4>
+                        <p class="exhibit-details-text">
+                            유럽 유수의 미식 퀴진과 파인다이닝의 극적인 연출을 위한 최적의 반각 가공 굴입니다. 영하 40도의 정밀 동결 시스템을 통해, 첫 수확의 맑은 굴 향을 해동 시점까지 고스란히 봉인했습니다.
+                        </p>
+                        <a href="#alliance" class="btn-editorial-explore">Alliance Request</a>
+                    </div>
+                    <div class="exhibit-visual">
+                        <span class="exhibit-visual-seal">DÉCO DESIGN</span>
+                        <!-- 하프셀 굴 디자인 패스 드로잉 -->
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M100,15 C145,55 175,115 155,165 C135,195 115,195 100,195 C85,195 65,195 45,165 C25,115 55,55 100,15 Z" fill="#E4DEC3" stroke="#C5A880" stroke-width="1.5" />
+                            <path d="M100,15 C145,55 175,115 155,165 C135,195 115,195 100,195 Z" fill="#9F8772" opacity="0.35"/>
+                            <path d="M95,60 C110,80 120,110 113,137 C108,152 103,152 97,152 C91,152 85,152 80,137 C73,110 83,80 95,60 Z" fill="#FAFDFB" />
+                            <circle cx="95" cy="115" r="8" fill="#B4C2B7" opacity="0.7"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 품목 3 -->
+                <div class="exhibit-item">
+                    <div class="exhibit-visual">
+                        <span class="exhibit-visual-seal">ORFEVRERIE</span>
+                        <!-- 알굴 디자인 패스 드로잉 -->
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M90,35 C110,50 130,85 120,120 C112,145 98,145 90,145 C82,145 68,145 60,120 C50,85 70,35 90,35 Z" fill="#F3FAF6" stroke="#C3D2C8" stroke-width="1"/>
+                            <path d="M120,75 C135,85 150,110 142,135 C136,150 126,150 120,150 C114,150 104,150 98,135 C90,110 105,75 120,75 Z" fill="#EDF5F1" stroke="#BACAC0" stroke-width="1" opacity="0.8"/>
+                            <circle cx="90" cy="95" r="7" fill="#B5C9BC" opacity="0.5"/>
+                            <circle cx="120" cy="118" r="6" fill="#A8BCB0" opacity="0.5"/>
+                        </svg>
+                    </div>
+                    <div class="exhibit-desc-box">
+                        <span class="exhibit-num">N°03</span>
+                        <h3 class="exhibit-name-en">La Chair d'Huître — Pack (알굴)</h3>
+                        <h4 class="exhibit-name-ko">스텔라 마리스 냉동 알굴 & 실버팩</h4>
+                        <p class="exhibit-details-text">
+                            최상의 요리를 위한 순수 굴 살 보관 콜렉션입니다. 껍질을 정밀 탈각한 후 엄격히 세척하여 고기능성 실버팩에 진공 안치하였으며, 고차원 굴 요리에 완벽한 조화를 선사합니다.
+                        </p>
+                        <a href="#alliance" class="btn-editorial-explore">Alliance Request</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ARCHIVAL TRUST (IP Grid) -->
+    <section class="archive-intellectual" id="authority">
+        <div class="container">
+            <div class="editorial-sec-head">
+                <span>INTELLECTUAL PROPERTIES</span>
+                <h2>Archival <em>Authority</em></h2>
+            </div>
+
+            <div class="archive-grid">
+                <!-- 상표권 -->
+                <div class="archive-card">
+                    <div class="archive-card-top">
+                        <span class="archive-badge-num">I</span>
+                        <svg class="archive-crest" viewBox="0 0 24 24">
+                            <path d="M12 2L2 22h20L12 2zm0 3.99L18.8 19H5.2L12 5.99z"/>
+                        </svg>
+                    </div>
+                    <div class="archive-card-content">
+                        <h4 class="archive-card-title">독점 상표권</h4>
+                        <p class="archive-card-desc">타 유사 카테고리 품목들의 무분별한 혼용을 배격하는 국가 등록 고유 상표권을 보유하고 있습니다.</p>
+                    </div>
+                </div>
+
+                <!-- 가공특허 -->
+                <div class="archive-card">
+                    <div class="archive-card-top">
+                        <span class="archive-badge-num">II</span>
+                        <svg class="archive-crest" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 8v8M8 12h8" />
+                        </svg>
+                    </div>
+                    <div class="archive-card-content">
+                        <h4 class="archive-card-title">양식·가공 특허권</h4>
+                        <p class="archive-card-desc">사계절 일관된 텍스처와 볼륨을 유지해 내는 태화물산만의 원천 기술 특허 포트폴리오입니다.</p>
+                    </div>
+                </div>
+
+                <!-- HACCP -->
+                <div class="archive-card">
+                    <div class="archive-card-top">
+                        <span class="archive-badge-num">III</span>
+                        <svg class="archive-crest" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/>
+                        </svg>
+                    </div>
+                    <div class="archive-card-content">
+                        <h4 class="archive-card-title">HACCP 안전 인증</h4>
+                        <p class="archive-card-desc">바다 수확 단계에서부터 식탁에 도달하는 유통 패키징 전체 경로에 적용되는 위해 요소 무결성 기준을 통과했습니다.</p>
+                    </div>
+                </div>
+
+                <!-- 7개국 수출 -->
+                <div class="archive-card">
+                    <div class="archive-card-top">
+                        <span class="archive-badge-num">IV</span>
+                        <svg class="archive-crest" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.53c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                        </svg>
+                    </div>
+                    <div class="archive-card-content">
+                        <h4 class="archive-card-title">글로벌 수출 면허</h4>
+                        <p class="archive-card-desc">EU 및 미주, 아시아 전역 주요 7개국의 극도로 복잡한 수입 식품 위생 검역 조건을 획득 완료했습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PRESS & TRUST CHARTER (Editorial Guarantee) -->
+    <section class="charter-guarantee">
+        <div class="container">
+            <div class="charter-layout">
+                <div class="charter-text-panel">
+                    <h3>Media Highlight</h3>
+                    <p>스텔라마리스의 순수한 미식 철학과 기술력은 유수의 언론과 평단으로부터 탁월함을 입증받고 있습니다.</p>
+                    
+                    <div class="media-press-block">
+                        <a href="#" class="media-press-row">
+                            <div>
+                                <div class="media-outlet">Marine Industry Review — 2026</div>
+                                <div class="media-quote">"스텔라마리스, 통영 심해 자원과 독보적 유통 생태계의 성공적 융합"</div>
+                            </div>
+                            <div class="media-arrow">→</div>
+                        </a>
+                        <a href="#" class="media-press-row">
+                            <div>
+                                <div class="media-outlet">The Gastronomy Europe — 2026</div>
+                                <div class="media-quote">"지중해 명문 브랜드에 견주는 균일한 품질과 은은한 피니시"</div>
+                            </div>
+                            <div class="media-arrow">→</div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 고품격 브랜드 보장 헌장 -->
+                <div class="guarantee-charter-box">
+                    <!-- 우아하게 그려진 헌장 씰 그래픽 -->
+                    <svg class="charter-seal-graphic" viewBox="0 0 100 100">
+                        <rect x="25" y="15" width="50" height="70" fill="none" stroke="currentColor" stroke-width="1"/>
+                        <path d="M40,35 L60,35 M40,45 L60,45 M40,55 L55,55" stroke="currentColor" stroke-width="0.75"/>
+                        <circle cx="50" cy="70" r="12" fill="none" stroke="currentColor" stroke-width="1.2"/>
+                        <path d="M45,75 L42,85 L50,80 L58,85 L55,75" fill="none" stroke="currentColor" stroke-width="1"/>
+                    </svg>
+                    <h4 class="charter-seal-title">La Garantie Pureté</h4>
+                    <p class="charter-seal-body">
+                        태화물산은 무결점의 기품만을 전합니다.<br><br>
+                        자연에서 마주한 한 알의 작은 불완전성조차 소비자의 식탁에 닿는 것을 경계합니다. 수령하신 스텔라마리스의 선도와 가치에 아주 작은 오차라도 존재할 시, 당사의 전적인 책임 아래 즉각적인 100% 무상 재발송 및 보전을 약속하는 품질 헌장입니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. STELLA HERITAGE PORTAL BRIDGE -->
+    <section class="heritage-eco-banner">
+        <!-- 배경 천체 디자인 -->
+        <svg class="eco-bg-line" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="400" cy="400" r="300" fill="none" stroke="#C5A880" stroke-width="0.5"/>
+            <circle cx="400" cy="400" r="200" fill="none" stroke="#C5A880" stroke-width="0.5" stroke-dasharray="2 4"/>
+            <line x1="400" y1="50" x2="400" y2="750" stroke="#C5A880" stroke-width="0.5" opacity="0.1"/>
+            <line x1="50" y1="400" x2="750" y2="400" stroke="#C5A880" stroke-width="0.5" opacity="0.1"/>
+        </svg>
+        <div class="eco-inner">
+            <span class="eco-tag">The Universe Expansion</span>
+            <h3 class="eco-title">자연의 신비와 문명의 조화<br><em>Stella Heritage</em></h3>
+            <p class="eco-desc">
+                스텔라마리스는 단순한 수확을 넘어 인류의 역사와 궤를 같이해 온 굴 미식 문화를 탐닉합니다. 바다와 조우하며 보낸 위대한 역사적 가치들을 스텔라 헤리티지 공간에서 조용히 음미해 보시기 바랍니다.
+            </p>
+            <a href="#" class="btn-editorial-secondary">Enter Heritage Museum</a>
+        </div>
+    </section>
+
+    <!-- 8. ALLIANCE PORTAL (Contact Form) -->
+    <section class="alliance-portal" id="alliance">
+        <div class="container">
+            <div class="alliance-grid">
+                <div class="alliance-desc-box">
+                    <h3>Alliance<br><em>with Partner</em></h3>
+                    <p class="alliance-info-desc">
+                        태화물산은 단순 유통을 넘어 스텔라마리스의 가치 체계를 동등하게 유지하고 공유할 글로벌 오피스, 수입기관, 그리고 전 세계 파인다이닝 클라이언트들의 제안을 상시 경청하고 있습니다.
+                    </p>
+                    
+                    <div class="alliance-contact-meta">
+                        <div class="meta-address-row">
+                            <div class="meta-address-icon-frame">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="meta-address-label">Maison Location</div>
+                                <div class="meta-address-value">경상남도 통영시 광도면 죽림해안로 66, 성원빌딩 4층</div>
+                            </div>
+                        </div>
+
+                        <div class="meta-address-row">
+                            <div class="meta-address-icon-frame">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="meta-address-label">Direct Correspondence</div>
+                                <div class="meta-address-value">alliance@taehwa-oyster.com</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alliance-form-box">
+                    <form id="editorialInquiry" onsubmit="submitInquiry(event)">
+                        <div class="editorial-form-group">
+                            <label class="editorial-form-label">성명 혹은 법인 파트너명</label>
+                            <input type="text" class="editorial-input" required placeholder="Name or Corporation">
+                        </div>
+                        <div class="editorial-form-group">
+                            <label class="editorial-form-label">서신 연락처 (이메일)</label>
+                            <input type="email" class="editorial-input" required placeholder="partner@domain.com">
+                        </div>
+                        <div class="editorial-form-group">
+                            <label class="editorial-form-label">제휴 안건 세부 서사</label>
+                            <textarea class="editorial-input editorial-textarea" rows="6" required placeholder="수출 요건, 바이어 거래 규모 등 상세 내용을 품격 있게 기술해 주십시오."></textarea>
+                        </div>
+                        <button type="submit" class="btn-editorial-submit">Submit Proposal</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <span class="footer-logo-text">STELLA MARIS</span>
+                    <div class="footer-co-info">
+                        <p>수혜기업: 태화물산 (대표자: 정영민)</p>
+                        <p>지자체 파트너: 통영시 | 주관기관: 경남서부지식재산센터</p>
+                        <p>본 사이트는 지자체맞춤형 IP 지원사업을 통해 가치를 인정받아 건조되었습니다.</p>
+                    </div>
+                </div>
+                <div>
+                    <h6 class="footer-links-title">Ecosystem Navigation</h6>
+                    <div class="footer-links-list">
+                        <a href="#story">원천의 서사 (Origin)</a>
+                        <a href="#collection">수확 콜렉션 (Masterpiece)</a>
+                        <a href="#authority">지식재산 및 인증서 (Archival)</a>
+                        <a href="#alliance">글로벌 파트너쉽 (Alliance)</a>
+                    </div>
+                </div>
+                <div>
+                    <h6 class="footer-links-title">Ecosystem Partners</h6>
+                    <div class="footer-links-list" style="font-size: 0.8rem; opacity: 0.7;">
+                        <p>브랜딩 파트너: 더큐알 (The QR)</p>
+                        <p>협력운영: 경남서부지식재산센터</p>
+                        <p>지자체연계 IP 전략 자문단 조직작</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="footer-credit">&copy; 2026 Stella Maris. All Rights Reserved. Designed by The QR.</p>
+                <div class="footer-socials">
+                    <a href="#">Instagram</a>
+                    <a href="#">YouTube</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 제휴 제안 확인 경고 대체 위젯 -->
+    <div class="toast-dialog" id="allianceToast">
+        귀한 서신 제안이 보관되었습니다. 바이어 전담 컨설팅 마케터가 24시간 이내 연락을 취하도록 하겠습니다.
+    </div>
+
+    <!-- -------------------------------------------------------------
+       STREAMING_CHUNK:Injecting fluid scroll and interaction scripts...
+    ------------------------------------------------------------- -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var header = document.getElementById('mainHeader');
+            
+            // 1. 유럽식 미세 지연 스크롤 헤더 반응 효과
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 80) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // 2. 이중 다국어 선택 인터랙션 토글
+            var langSpans = document.querySelectorAll('.lang-editorial span');
+            langSpans.forEach(function(span) {
+                span.addEventListener('click', function() {
+                    langSpans.forEach(s => s.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+
+        // 3. 우아한 모달/토스트 방식 제휴 전송 연출
+        function submitInquiry(event) {
+            event.preventDefault();
+            var toast = document.getElementById('allianceToast');
+            toast.style.display = 'block';
+            setTimeout(() => {
+                toast.classList.add('active');
+            }, 50);
+
+            // 입력값 초기화
+            document.getElementById('editorialInquiry').reset();
+
+            // 5초 후 자연스러운 퇴장 효과
+            setTimeout(() => {
+                toast.classList.remove('active');
+                setTimeout(() => {
+                    toast.style.display = 'none';
+                }, 750);
+            }, 5000);
+        }
+
+        // 부드러운 타겟 섹션 스크롤 가이드
+        function scrollToSection(id) {
+            var target = document.getElementById(id);
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    </script>
+</body>
+</html>
